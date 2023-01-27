@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration Form</title>
+	<style type="text/css">
+		body
+		{
+			font-family: 'sans-serif';
+			font-size: 20px;
+			border: 30px solid black;
+			background: #FDC830;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #F37335, #FDC830);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #F37335, #FDC830); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+		}
+		.header
+		{
+			background: #FF8008;  /* fallback for old browsers */
+			background: -webkit-linear-gradient(to bottom, #FFC837, #FF8008);  /* Chrome 10-25, Safari 5.1-6 */
+			background: linear-gradient(to bottom, #FFC837, #FF8008); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+
+		}
+		footer
+		{
+			background: #FF5F6D;  /* fallback for old browsers */
+			background: -webkit-linear-gradient(to right, #FFC371, #FF5F6D);  /* Chrome 10-25, Safari 5.1-6 */
+			background: linear-gradient(to right, #FFC371, #FF5F6D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+		}
+	</style>
+	<script type="text/javascript">
+		function verify()
+		{
+			var Username = document.getElementById("Username");
+			var pass = document.getElementById("pass");
+			var msg = new Array();
+			var flag = 1;
+			var message ="Following Details are Required\n";
+			var message2 ="Following Details are Required<br>";
+
+			if(Username.value == "")
+			{
+			msg[0] = "User Name is Required";
+			flag = 0;
+			} else { msg[0] = ""; }
+
+			if(pass.value.length < 8)
+			{
+			msg[1] = "Password must be 8 characters long";
+			flag = 0;
+			} else { msg[1] = ""; }
+
+			if(flag == 0)
+			{
+			// Show Error Messages
+			for(var x=0; x<=1; x++)
+			{
+				if(msg[x] != "")
+				{
+					message += msg[x] + "\n";
+					message2 += msg[x] + "<br>";
+				}
+			}
+			alert(message);
+			document.getElementById("output").innerHTML = "<p style='color:red;'>"+message2+"</p>";
+			return false;
+			}
+				else
+			{
+			return true;
+			}
+		}
+
+	</script>
+</head>
+<body>
+	<div class="form-container">
+	<h1 class="header" style="color:black ;font-size:30px; text-align: center">Zomato</h1>
+	<div  id="output" style="text-align: center"></div>
+</body>
+<form style="text-align:center" method="post" action="" onSubmit="return verify()">
+	<label>User Name :</label>
+	<input style="width:200px" "font-size:20px" name="name" id="Username" type="text" placeholder="Enter User name" name="username"><br><br>
+	<label>PassWord :</label>
+	<input style="width: 200px" "font-size:20px" name="password" id="pass" type="Password" placeholder="Password" maxlength="8" name="password"><br><br>
+	<button style="width:80px ; height:30px ;  font-size:20px">submit</button>
+	<input style="width:80px ; height:30px ;  font-size:20px"  type="reset"/>
+	<br><br>
+	<footer>
+		<h3 style="color: black">&copy; Dhanashree Telang | Department of Electronics & Telecommunication Engineering | USN: ET20049 | S.B.Jain, Nagpur</h3>
+	</footer>
+</div>
+</form>
+</html>
